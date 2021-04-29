@@ -1,0 +1,93 @@
+body {
+  background-color: #64638f;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 50px;
+}
+.card-body {
+  background-color: #cbc9ff;
+}
+.card-title {
+  font-size: 50px;
+  font-family: "Rubik Mono One", sans-serif;
+  color: #64638f;
+}
+.form-control {
+  margin-top: 10px;
+}
+.btn {
+  margin-bottom: 15px;
+  float: right;
+  background-color: #64638f;
+  border-color: #64638f;
+  color: #ebeafe;
+}
+#current {
+  margin-bottom: 15px;
+  float: left;
+  background-color: #64638f;
+  border-color: #64638f;
+  color: #ebeafe;
+}
+.icons {
+  font-size: 30px;
+  color: #9088d4;
+}
+
+.current-weather {
+  margin-left: 20px;
+  font-size: 110px;
+  color: #64638f;
+}
+
+.weather-word {
+  color: #64638f;
+  font-family: "Roboto", sans-serif;
+  margin-top: 40px;
+}
+
+.today {
+  margin-bottom: 20px;
+  margin-left: 25px;
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+  color: #64638f;
+}
+
+.card-subtitle {
+  font-size: 75px;
+  color: #64638f;
+}
+
+.day {
+  margin-top: 10px;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  color: #64638f;
+}
+
+.temperature {
+  color: #64638f;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+.degrees {
+  color: #64638f;
+  font-size: 12px;
+  font-family: "Roboto", sans-serif;
+  margin-top: 40px;
+  margin-left: -90px;
+}
+
+.extra-info {
+  color: #64638f;
+  font-size: 12px;
+  font-family: "Roboto", sans-serif;
+  margin-top: 100px;
+  margin-left: -10px;
+}

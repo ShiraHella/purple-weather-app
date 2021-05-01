@@ -93,9 +93,8 @@ body {
 }
 
 .openSourceLink {
-  color: #64638f;
+  color: #cbc9ff;
   font-size: 12px;
   font-family: "Roboto", sans-serif;
-  margin-left: 160px;
-  margin-top: 0px;
+  text-align: center;
 }

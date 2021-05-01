@@ -98,3 +98,17 @@ body {
   font-family: "Roboto", sans-serif;
   text-align: center;
 }
+
+a {
+  outline: none;
+  text-decoration: none;
+  padding: 2px 1px 0;
+}
+
+a:link {
+  color: #9088d4;
+}
+
+a:visited {
+  color: #9088d4;
+}

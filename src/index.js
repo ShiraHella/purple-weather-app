@@ -1,4 +1,4 @@
-
+import "./style.css";
 
 function formatDate(newDate) {
   let days = [

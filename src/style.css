@@ -48,6 +48,7 @@ body {
   color: #64638f;
   font-family: "Roboto", sans-serif;
   margin-top: 40px;
+  text-transform: capitalize;
 }
 
 .today {

@@ -48,6 +48,8 @@ body {
   color: #64638f;
   font-family: "Roboto", sans-serif;
   margin-top: 40px;
+}
+.weather-word:first-letter {
   text-transform: capitalize;
 }
 

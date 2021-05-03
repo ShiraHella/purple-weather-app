@@ -39,6 +39,7 @@ function showTemperature(response) {
   humidityElement.innerHTML = `Humidity: ${humidity}%`;
   windElement.innerHTML = `Wind: ${wind}km/h`;
   descriptionElement.innerHTML = `${description}`;
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
 }
 
 function reveal(event) {

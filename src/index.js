@@ -61,6 +61,8 @@ city.addEventListener("submit", reveal);
 let searchedCityName = document.querySelector("#search-form");
 searchedCityName.addEventListener("submit", reveal);
 
+reveal("Yokohama");
+
 function showPosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;

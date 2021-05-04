@@ -41,7 +41,7 @@ function showTemperature(response) {
   windElement.innerHTML = `Wind: ${wind}km/h`;
   descriptionElement.innerHTML = `${description}`;
   iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
-  iconElement.setAttribute("alt", responsedata.weather[0].description);
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function reveal(event) {

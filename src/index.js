@@ -40,7 +40,6 @@ function showTemperature(response) {
   humidityElement.innerHTML = `Humidity: ${humidity}%`;
   windElement.innerHTML = `Wind: ${wind}km/h`;
   descriptionElement.innerHTML = `${description}`;
-  dateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   iconElement.setAttribute("alt", responsedata.weather[0].description);
 }

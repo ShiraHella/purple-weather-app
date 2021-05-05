@@ -27,7 +27,7 @@ let newDate = new Date();
 console.log(formatDate(newDate));
 
 function showTemperature(response) {
-  let temperature = Math.round(celsiusTemperature);
+  let temperature = Math.round(response.data.main.temp);
   let humidity = response.data.main.humidity;
   let wind = response.data.wind.speed;
   let description = response.data.weather[0].description;
@@ -43,26 +43,32 @@ function showTemperature(response) {
   humidityElement.innerHTML = `Humidity: ${humidity}%`;
   windElement.innerHTML = `Wind: ${wind}km/h`;
   descriptionElement.innerHTML = `${description}`;
-  iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
-function reveal(event) {
-  event.preventDefault();
-  let input = document.querySelector("#search-city");
-  let result = document.querySelector("#searched-city");
-  result.innerHTML = `${input.value}`;
-  let units = "metric";
-  let apiKey = "60dbe083627851751ca64015719aa9ec";
+function search (city) {
+let apiKey = "60dbe083627851751ca64015719aa9ec";
   let endPoint = "https://api.openweathermap.org/data/2.5/weather";
-  let apiUrl = `${endPoint}?q=${input.value}&appid=${apiKey}&units=${units}`;
+  let apiUrl = `${endPoint}?q=${city.value}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showTemperature);
 }
+
+function handleSearch(event) {
+  event.preventDefault();
+
+  let city = document.querySelector("#search-city");
+  let result = document.querySelector("#searched-city");
+  result.innerHTML = `${city.value}`;
+  let units = "metric";
+  search(city);
+  
+}
 let city = document.querySelector("#search-form");
-city.addEventListener("submit", reveal);
+city.addEventListener("submit", handleSearch);
 
 let searchedCityName = document.querySelector("#search-form");
-searchedCityName.addEventListener("submit", reveal);
+searchedCityName.addEventListener("submit", handleSearch);
 
 function showPosition(position) {
   let latitude = position.coords.latitude;
@@ -105,3 +111,5 @@ fahrenheitDegrees.addEventListener("click", changeToFahrenheit);
 
 let celsiusDegrees = document.querySelector("#celsius");
 celsiusDegrees.addEventListener("click", changeToCelsius);
+
+search("Yokohama");

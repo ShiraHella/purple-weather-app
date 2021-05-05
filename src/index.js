@@ -24,7 +24,7 @@ function formatDate(newDate) {
   today.innerHTML = `${currentDay}, ${currentHour}:${currentMinutes}`;
 }
 let newDate = new Date();
-console.log(formatDate(newDate));
+formatDate(newDate);
 
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);

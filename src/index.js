@@ -41,7 +41,7 @@ function showTemperature(response) {
   celsiusTemperature = response.data.main.temp;
 
   cityElement.innerHTML = response.data.name;
-  temperatureElement.innerHTML = `${temperature}˚c`;
+  temperatureElement.innerHTML = `${temperature}˚`;
   humidityElement.innerHTML = `Humidity: ${humidity}%`;
   windElement.innerHTML = `Wind: ${wind}km/h`;
   descriptionElement.innerHTML = `${description}`;
@@ -94,7 +94,7 @@ function changeToFahrenheit(event) {
   celsiusDegrees.classList.remove("active");
   fahrenheitDegrees.classList.add("active");
 let farenheitTemperature = (celsiusTemperature * 9)/ 5 + 32;
-  temperatureElement.innerHTML = Math.round(farenheitTemperature);
+  temperatureElement.innerHTML = `${Math.round(farenheitTemperature)}˚`;
 }
 
 function changeToCelsius(event){
@@ -102,7 +102,7 @@ function changeToCelsius(event){
   let temperatureElement = document.querySelector("h2");
   fahrenheitDegrees.classList.remove("active");
   celsiusDegrees.classList.add("active");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}˚`;
 }
 
 let celsiusTemperature = null;

@@ -29,16 +29,18 @@ console.log(formatDate(newDate));
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
   let humidity = response.data.main.humidity;
-  let wind = response.data.wind.speed;
+  let wind = Math.round(response.data.wind.speed * 3.6);
   let description = response.data.weather[0].description;
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let descriptionElement = document.querySelector("#description");
   let temperatureElement = document.querySelector("h2");
+  let cityElement = document.querySelector("#searched-city");
   let iconElement = document.querySelector("#icon");
 
   celsiusTemperature = response.data.main.temp;
 
+  cityElement.innerHTML = response.data.name;
   temperatureElement.innerHTML = `${temperature}˚c`;
   humidityElement.innerHTML = `Humidity: ${humidity}%`;
   windElement.innerHTML = `Wind: ${wind}km/h`;
@@ -61,7 +63,7 @@ function handleSearch(event) {
   let result = document.querySelector("#searched-city");
   result.innerHTML = `${city.value}`;
   
-  search(city);
+  search(city.value);
   
 }
 let city = document.querySelector("#search-form");
@@ -100,7 +102,7 @@ function changeToCelsius(event){
   let temperatureElement = document.querySelector("h2");
   fahrenheitDegrees.classList.remove("active");
   celsiusDegrees.classList.add("active");
-  temperatureElement = Math.round(celsiusTemperature);
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
 let celsiusTemperature = null;

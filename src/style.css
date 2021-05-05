@@ -115,3 +115,12 @@ a:link {
 a:visited {
   color: #9088d4;
 }
+
+.degrees .active {
+  color: #64638f;
+  cursor: default;
+}
+
+.degrees .active:hover {
+  text-decoration: none;
+}

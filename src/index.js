@@ -27,7 +27,7 @@ let newDate = new Date();
 console.log(formatDate(newDate));
 
 function showTemperature(response) {
-  let temperature = Math.round(response.data.main.temp);
+  let temperature = Math.round(celsiusTemperature);
   let humidity = response.data.main.humidity;
   let wind = response.data.wind.speed;
   let description = response.data.weather[0].description;
@@ -36,6 +36,9 @@ function showTemperature(response) {
   let descriptionElement = document.querySelector("#description");
   let temperatureElement = document.querySelector("h2");
   let iconElement = document.querySelector("#icon");
+
+  celsiusTemperature = response.data.main.temp;
+
   temperatureElement.innerHTML = `${temperature}˚c`;
   humidityElement.innerHTML = `Humidity: ${humidity}%`;
   windElement.innerHTML = `Wind: ${wind}km/h`;
@@ -76,3 +79,29 @@ function showCurrent(event) {
 }
 let currentButton = document.querySelector("#current");
 currentButton.addEventListener("click", showCurrent);
+
+
+function changeToFahrenheit(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("h2");
+  celsiusDegrees.classList.remove("active");
+  fahrenheitDegrees.classList.add("active");
+let farenheitTemperature = (celsiusTemperature * 9)/ 5 + 32;
+  temperatureElement.innerHTML = Math.round(farenheitTemperature);
+}
+
+function changeToCelsius(event){
+  event.preventDefault();
+  let temperatureElement = document.querySelector("h2");
+  fahrenheitDegrees.classList.remove("active");
+  celsiusDegrees.classList.add("active");
+  temperatureElement = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
+let fahrenheitDegrees = document.querySelector("#fahrenheit");
+fahrenheitDegrees.addEventListener("click", changeToFahrenheit);
+
+let celsiusDegrees = document.querySelector("#celsius");
+celsiusDegrees.addEventListener("click", changeToCelsius);

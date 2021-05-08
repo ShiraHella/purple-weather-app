@@ -105,7 +105,27 @@ function changeToCelsius(event){
   temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}˚`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHtml = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+  days.forEach(function(day) {
+    forecastHtml = forecastHtml + `
+              <div class="col-1">
+                <div class="day">${day}</div>
+                <i class="fas fa-umbrella"></i>
+                <div class="temperature">18°</div>
+              </div>`;
+
+  })
+  
+              forecastHtml = forecastHtml + `</div>`;
+  forecastElement.innerHTML = forecastHtml;
+}
+
 let celsiusTemperature = null;
+
 
 let fahrenheitDegrees = document.querySelector("#fahrenheit");
 fahrenheitDegrees.addEventListener("click", changeToFahrenheit);
@@ -114,3 +134,4 @@ let celsiusDegrees = document.querySelector("#celsius");
 celsiusDegrees.addEventListener("click", changeToCelsius);
 
 search("Yokohama");
+displayForecast();

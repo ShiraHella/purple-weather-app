@@ -26,6 +26,12 @@ function formatDate(newDate) {
 let newDate = new Date();
 formatDate(newDate);
 
+function getForecast(coordinates) {
+let apiKey = "60dbe083627851751ca64015719aa9ec";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`
+axios.get(apiUrl).then(displayForecast);
+}
+
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
   let humidity = response.data.main.humidity;
@@ -47,6 +53,8 @@ function showTemperature(response) {
   descriptionElement.innerHTML = `${description}`;
   iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   iconElement.setAttribute("alt", response.data.weather[0].description);
+ 
+  getForecast(response.data.coord);
 }
 
 function search (city) {
@@ -105,7 +113,7 @@ function changeToCelsius(event){
   temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}˚`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHtml = `<div class="row">`;
@@ -134,4 +142,3 @@ let celsiusDegrees = document.querySelector("#celsius");
 celsiusDegrees.addEventListener("click", changeToCelsius);
 
 search("Yokohama");
-displayForecast();

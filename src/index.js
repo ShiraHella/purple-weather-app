@@ -26,6 +26,16 @@ function formatDate(newDate) {
 let newDate = new Date();
 formatDate(newDate);
 
+function formatDay (timeStamp) {
+let date = new Date(timeStamp * 1000);
+let day = date.getDay();
+let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+return days[day];
+}
+
+
+
 function getForecast(coordinates) {
 let apiKey = "60dbe083627851751ca64015719aa9ec";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`
@@ -114,17 +124,19 @@ function changeToCelsius(event){
 }
 
 function displayForecast(response) {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHtml = `<div class="row">`;
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
-  days.forEach(function(day) {
+  
+  forecast.forEach(function(forecastDay, index) {
+    if (index < 5 ) {
     forecastHtml = forecastHtml + `
               <div class="col-1">
-                <div class="day">${day}</div>
-                <i class="fas fa-umbrella"></i>
-                <div class="temperature">18°</div>
-              </div>`;
+                <div class="day">${formatDay(forecastDay.dt)}</div>
+                <div class="forecastIcon"><img src="https://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt=""></div> 
+                <div class="temperature">${Math.round(forecastDay.temp.max)}˚ | ${Math.round(forecastDay.temp.min)}˚</div>
+              </div>`;}
 
   })
   

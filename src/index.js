@@ -106,23 +106,6 @@ let currentButton = document.querySelector("#current");
 currentButton.addEventListener("click", showCurrent);
 
 
-function changeToFahrenheit(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("h2");
-  celsiusDegrees.classList.remove("active");
-  fahrenheitDegrees.classList.add("active");
-let farenheitTemperature = (celsiusTemperature * 9)/ 5 + 32;
-  temperatureElement.innerHTML = `${Math.round(farenheitTemperature)}˚`;
-}
-
-function changeToCelsius(event){
-  event.preventDefault();
-  let temperatureElement = document.querySelector("h2");
-  fahrenheitDegrees.classList.remove("active");
-  celsiusDegrees.classList.add("active");
-  temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}˚`;
-}
-
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
@@ -144,13 +127,5 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHtml;
 }
 
-let celsiusTemperature = null;
-
-
-let fahrenheitDegrees = document.querySelector("#fahrenheit");
-fahrenheitDegrees.addEventListener("click", changeToFahrenheit);
-
-let celsiusDegrees = document.querySelector("#celsius");
-celsiusDegrees.addEventListener("click", changeToCelsius);
 
 search("Yokohama");

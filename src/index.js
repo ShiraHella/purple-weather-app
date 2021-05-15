@@ -54,8 +54,6 @@ function showTemperature(response) {
   let cityElement = document.querySelector("#searched-city");
   let iconElement = document.querySelector("#icon");
 
-  celsiusTemperature = response.data.main.temp;
-
   cityElement.innerHTML = response.data.name;
   temperatureElement.innerHTML = `${temperature}˚`;
   humidityElement.innerHTML = `Humidity: ${humidity}%`;

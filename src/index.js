@@ -108,7 +108,7 @@ currentButton.addEventListener("click", showCurrent);
 function changeToCelsius(event){
   event.preventDefault();
   let temperatureElement = document.querySelector("h2");
-  temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}˚`;
+  temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}˚c`;
 }
 
 function displayForecast(response) {

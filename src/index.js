@@ -59,7 +59,7 @@ function showTemperature(response) {
   humidityElement.innerHTML = `Humidity: ${humidity}%`;
   windElement.innerHTML = `Wind: ${wind}m/s`;
   descriptionElement.innerHTML = `${description}`;
-  iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  iconElement.setAttribute("src", `img/${response.data.weather[0].icon}.svg`);
   iconElement.setAttribute("alt", response.data.weather[0].description);
  
   getForecast(response.data.coord);

@@ -106,6 +106,13 @@ let currentButton = document.querySelector("#current");
 currentButton.addEventListener("click", showCurrent);
 
 
+
+function changeToCelsius(event){
+  event.preventDefault();
+  let temperatureElement = document.querySelector("h2");
+  temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}˚`;
+}
+
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");

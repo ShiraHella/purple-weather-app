@@ -55,7 +55,7 @@ function showTemperature(response) {
   let iconElement = document.querySelector("#icon");
 
   cityElement.innerHTML = response.data.name;
-  temperatureElement.innerHTML = `${temperature}˚`;
+  temperatureElement.innerHTML = `${temperature}˚c`;
   humidityElement.innerHTML = `Humidity: ${humidity}%`;
   windElement.innerHTML = `Wind: ${wind}km/h`;
   descriptionElement.innerHTML = `${description}`;
@@ -104,12 +104,6 @@ let currentButton = document.querySelector("#current");
 currentButton.addEventListener("click", showCurrent);
 
 
-
-function changeToCelsius(event){
-  event.preventDefault();
-  let temperatureElement = document.querySelector("h2");
-  temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}˚c`;
-}
 
 function displayForecast(response) {
   let forecast = response.data.daily;

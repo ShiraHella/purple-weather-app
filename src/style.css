@@ -26,13 +26,7 @@ body {
   border-color: #64638f;
   color: #ebeafe;
 }
-#current {
-  margin-bottom: 15px;
-  float: left;
-  background-color: #64638f;
-  border-color: #64638f;
-  color: #ebeafe;
-}
+
 .icons {
   font-size: 20px;
   color: #9088d4;
@@ -55,8 +49,8 @@ body {
 
 .today {
   margin-bottom: 20px;
-  margin-left: 25px;
-  font-size: 20px;
+  margin-left: 5px;
+  font-size: 15px;
   font-family: "Roboto", sans-serif;
   color: #64638f;
 }

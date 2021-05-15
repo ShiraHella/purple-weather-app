@@ -21,7 +21,7 @@ function formatDate(newDate) {
   let currentDay = days[newDate.getDay()];
 
   let today = document.querySelector("#today");
-  today.innerHTML = `${currentDay}, ${currentHour}:${currentMinutes}`;
+  today.innerHTML = `Last updated: ${currentDay}, ${currentHour}:${currentMinutes}`;
 }
 let newDate = new Date();
 formatDate(newDate);
@@ -96,12 +96,6 @@ function showPosition(position) {
   axios.get(apiLocation).then(showTemperature);
 }
 
-function showCurrent(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(showPosition);
-}
-let currentButton = document.querySelector("#current");
-currentButton.addEventListener("click", showCurrent);
 
 
 

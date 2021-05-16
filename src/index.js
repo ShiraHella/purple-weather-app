@@ -1,4 +1,4 @@
-
+import "./style.css";
 
 function formatDate(newDate) {
   let days = [
@@ -59,7 +59,7 @@ function showTemperature(response) {
   humidityElement.innerHTML = `Humidity: ${humidity}%`;
   windElement.innerHTML = `Wind: ${wind}m/s`;
   descriptionElement.innerHTML = `${description}`;
-  iconElement.setAttribute("src", `img/${response.data.weather[0].icon}.svg`);
+  iconElement.setAttribute("src", `src/img/${response.data.weather[0].icon}.svg`);
   iconElement.setAttribute("alt", response.data.weather[0].description);
  
   getForecast(response.data.coord);
@@ -110,7 +110,7 @@ function displayForecast(response) {
     forecastHtml = forecastHtml + `
               <div class="col-2">
                 <div class="day">${formatDay(forecastDay.dt)}</div>
-                <div class="forecastIcon"><img src="img/${forecastDay.weather[0].icon}.svg" class="mx-auto d-block" alt="" width="70px"></div> 
+                <div class="forecastIcon"><img src="src/img/${forecastDay.weather[0].icon}.svg" class="mx-auto d-block" alt="" width="70px"></div> 
                 <div class="temperature">${Math.round(forecastDay.temp.max)}˚ | ${Math.round(forecastDay.temp.min)}˚</div>
               </div>`;}
 

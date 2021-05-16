@@ -110,7 +110,7 @@ function displayForecast(response) {
     forecastHtml = forecastHtml + `
               <div class="col-2">
                 <div class="day">${formatDay(forecastDay.dt)}</div>
-                <div class="forecastIcon"><img src="src/img/${forecastDay.weather[0].icon}.svg" class="mx-auto d-block" alt="" width="70px"></div> 
+                <div class="forecastIcon"><img src="src/img/${forecastDay.weather[0].icon}.svg" class="mx-auto d-block" alt="" width="50px"></div> 
                 <div class="temperature">${Math.round(forecastDay.temp.max)}˚ | ${Math.round(forecastDay.temp.min)}˚</div>
               </div>`;}
 
